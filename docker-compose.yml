@@ -4,8 +4,11 @@ services:
     image: jupyter/base-notebook
     container_name: jupyter.test
     ports:
-      - "8888:8888"
+      - "8877:8888"
       - "5000:5000"
     volumes:
       - ./work:/home/jovyan/work/
     command: start-notebook.sh --NotebookApp.token=''
+    environment:
+      GRANT_SUDO: "yes"
+    user: root
